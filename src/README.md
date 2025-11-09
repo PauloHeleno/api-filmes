@@ -23,3 +23,6 @@ Uma API REST de filmes básica feita com Node.js e Express.
 ## Workflow escolhido
 
 -  Escolhi **GitHub Flow** por ser simples e ideal para projetos não muito complexos, como esta API de filmes, permitindo entregar novas features deforma rápida e organizada.
+
+
+

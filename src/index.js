@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-app.use(express.json()); 
+app.use(express.json());
 
 let filmes = [
   { id: 1, titulo: "O Senhor dos Anéis", ano: 2001 },
@@ -31,6 +31,20 @@ app.post("/api/filmes", (req, res) => {
   res.status(201).json(novoFilme);
 });
 
+app.delete("/api/filmes/:id", (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  const index = filmes.findIndex(filme => filme.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ mensagem: "Filme não encontrado" });
+  }
+
+  filmes.splice(index, 1);
+
+  return res.status(204).send();
+});
+
 app.listen(port, () => {
-  console.log(` Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
