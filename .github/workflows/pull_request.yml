@@ -20,22 +20,13 @@ jobs:
           node-version: 22
 
       - name: Instalando dependências
-<<<<<<< HEAD
         run: npm install
-=======
-        run: npm ci
->>>>>>> 7f819beb82c8aba9e2a2b29ac44a18fca99b5690
 
       - name: Rodando ESLint
         run: npm run lint
 
-<<<<<<< HEAD
   test:
     name: Testes
-=======
-  test-coverage:
-    name: Testes e Cobertura
->>>>>>> 7f819beb82c8aba9e2a2b29ac44a18fca99b5690
     runs-on: ubuntu-latest
     needs: lint
 
@@ -49,15 +40,9 @@ jobs:
           node-version: 22
 
       - name: Instalando dependências
-<<<<<<< HEAD
         run: npm install
 
       - name: Rodando testes
-=======
-        run: npm ci
-
-      - name: Executando testes com cobertura
->>>>>>> 7f819beb82c8aba9e2a2b29ac44a18fca99b5690
         run: npm test
 
   docker-build:
