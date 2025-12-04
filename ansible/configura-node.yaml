@@ -1,0 +1,30 @@
+---
+- name: Instalar e configurar aplicação Node.js
+  hosts: servidor
+  become: yes
+
+  tasks:
+    - name: Atualizar lista de pacotes
+      apt:
+        update_cache: yes
+
+    - name: Instalar Node.js
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Criar diretório da aplicação
+      file:
+        path: /opt/app-filmes
+        state: directory
+
+    - name: Copiar arquivos da aplicação
+      copy:
+        src: ../
+        dest: /opt/app-filmes/
+        exclude: ".git"
+
+    - name: Instalar dependências da aplicação
+      command: npm install
+      args:
+        chdir: /opt/app-filmes/
