@@ -28,7 +28,8 @@ Uma API REST de filmes básica feita com Node.js e Express.
 
 
 ## 📦 Imagem no Docker Hub
-👉 https://hub.docker.com/repository/docker/heleno07/app-filmes
+
+👉 https://hub.docker.com/r/heleno07/app-filmes
 
 
 ![Docker Pulls](https://badgen.net/docker/pulls/heleno07/app-filmes)
