@@ -1,0 +1,48 @@
+name: Main CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build da imagem Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonando repositório
+        uses: actions/checkout@v4
+
+      - name: Build da imagem
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/app-filmes:latest .
+
+      - name: Salvando imagem
+        run: docker save ${{ secrets.DOCKER_USERNAME }}/app-filmes:latest | gzip > image.tar.gz
+
+      - name: Upload da imagem para próximo job
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: image.tar.gz
+
+  push-dockerhub:
+    name: Publicação no Docker Hub
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download da imagem
+        uses: actions/download-artifact@v4
+        with:
+          name: docker-image
+
+      - name: Login no Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Load da imagem
+        run: docker load < image.tar.gz
+
+      - name: Publicando no Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/app-filmes:latest
