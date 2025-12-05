@@ -4,6 +4,8 @@ Inicio do projeto
 
 Uma API REST de filmes básica feita com Node.js e Express.
 
+
+
 ## Como executar a API
 
 - Clone este repositório:
@@ -26,8 +28,8 @@ Uma API REST de filmes básica feita com Node.js e Express.
 
 
 ## 📦 Imagem no Docker Hub
-👉 https://hub.docker.com/r/helen07/app-filmes
+👉 https://hub.docker.com/repository/docker/heleno07/app-filmes
 
 
-![Docker Pulls](https://badgen.net/docker/pulls/helen07/app-filmes)
-![Docker Image Size](https://badgen.net/docker/size/helen07/app-filmes/latest)
+![Docker Pulls](https://badgen.net/docker/pulls/heleno07/app-filmes)
+![Docker Image Size](https://badgen.net/docker/size/heleno07/app-filmes/latest)
