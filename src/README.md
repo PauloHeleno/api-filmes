@@ -25,4 +25,9 @@ Uma API REST de filmes básica feita com Node.js e Express.
 -  Escolhi **GitHub Flow** por ser simples e ideal para projetos não muito complexos, como esta API de filmes, permitindo entregar novas features deforma rápida e organizada.
 
 
+## 📦 Imagem no Docker Hub
+👉 https://hub.docker.com/r/helen07/app-filmes
 
+
+![Docker Pulls](https://badgen.net/docker/pulls/helen07/app-filmes)
+![Docker Image Size](https://badgen.net/docker/size/helen07/app-filmes/latest)
